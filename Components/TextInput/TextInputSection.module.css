@@ -1,0 +1,23 @@
+.Section {
+  max-width: 130rem;
+  margin: 0 auto;
+}
+.InputPrrent {
+  margin: 0 auto;
+  margin-top: 50vh;
+  width: 300px;
+}
+.TextInput {
+  width: 100%;
+  padding-bottom: 100px;
+  caret-color: black;
+}
+.TextInput:focus {
+  outline: none;
+}
+.Button {
+  margin-top: 3.2rem;
+  width: 100%;
+  background-color: aqua;
+  border: none;
+}
