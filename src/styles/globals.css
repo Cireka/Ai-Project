@@ -15,7 +15,7 @@
 }
 
 body {
-  background-color: #1a1919;
+  background-color: #212529;
   overflow-x: hidden;
   max-width: 100vw;
   animation: myAnim 1s ease 0s 1 normal forwards;

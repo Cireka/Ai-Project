@@ -4,20 +4,80 @@
 }
 .InputPrrent {
   margin: 0 auto;
-  margin-top: 50vh;
-  width: 300px;
+  margin-top: 9.2rem;
+  width: 90%;
+  border: 1px solid #cacfd8;
+  border-radius: 1.2rem;
+}
+.form {
+  border-top: 1px solid #cacfd8;
+  padding: 3.2rem;
+}
+.InputFormContainer,
+.OptionsListParrent {
+  display: grid;
+  grid-template-columns: 1fr 4.5fr;
+}
+.OptionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.OptionsContainer > select {
+  border: 1px solid #cacfd8;
+  height: 3.4rem;
+  background-color: white;
+  border-radius: 4px;
+}
+.OptionsListParrent {
+  padding: 3.2rem;
+}
+.FormHeader {
+  padding: 3.2rem;
+  border-bottom: 1px solid #cacfd8;
+}
+.FormHeader > h1 {
+  font-size: 3.2rem;
 }
 .TextInput {
+  height: 400px;
   width: 100%;
-  padding-bottom: 100px;
-  caret-color: black;
+  resize: none;
+  overflow: auto;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+  line-height: 1.5;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  caret-color: #000;
 }
 .TextInput:focus {
   outline: none;
 }
 .Button {
+  transition: ease-in-out 0.3s;
+  border: 1px solid #adb5bd;
+  border-radius: 0.8rem;
   margin-top: 3.2rem;
   width: 100%;
-  background-color: aqua;
-  border: none;
+  background-color: #adb5bd;
+  padding: 1.2rem 0;
+}
+.Button:hover {
+  border: 1px solid #6c757d;
+  transition: ease-in-out 0.3s;
+  cursor: pointer;
+  background-color: #6c757d;
+}
+.Button:active {
+  border: 1px solid #ced4da;
+  cursor: pointer;
+  background-color: #ced4da;
+}
+.Audio {
+  position: absolute;
+  left: 1.2rem;
+  bottom: 3.8rem;
 }

@@ -1,0 +1,7 @@
+.NavigationParrent {
+  margin-top: 3.2rem;
+}
+
+.NavigationParrent > h1 {
+  text-align: center;
+}
