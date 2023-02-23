@@ -9,6 +9,7 @@ const TextInputSection = () => {
   const [voices, setVoices] = useState([]);
   const [audioUrl, setAudioUrl] = useState(null);
   const [apiPersonalData, setApiPersonalData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const InputChangeHandler = (event) => {
     event.preventDefault();
@@ -16,9 +17,9 @@ const TextInputSection = () => {
   };
 
   const SubmitHandler = (event) => {
+    event.preventDefault();
     const url = `https://api.elevenlabs.io/v1/text-to-speech/${voiceName}`;
-    const apiKey = "8f358a86ce3dd5ba829791045b3ff889";
-
+    const apiKey = "86df1c445eb4015349761a2db30f423a";
     const data = {
       text: textInput,
       voice_settings: {
@@ -26,38 +27,36 @@ const TextInputSection = () => {
         similarity_boost: 0,
       },
     };
-
     const headers = {
       accept: "audio/mpeg",
       "xi-api-key": apiKey,
       "Content-Type": "application/json",
     };
-
-    event.preventDefault();
+    setLoading(true);
     axios
       .post(url, data, { headers, responseType: "blob" })
       .then((response) => {
         const audioBlob = new Blob([response.data], { type: "audio/mpeg" });
         setAudioUrl(URL.createObjectURL(audioBlob));
+        setLoading(false);
       })
       .catch((error) => {
-        console.error(error);
+        console.log(error);
+
+        setLoading(false);
       });
 
     const myHeaders = {
       accept: "application/json",
-      "xi-api-key": "8f358a86ce3dd5ba829791045b3ff889",
+      "xi-api-key": "86df1c445eb4015349761a2db30f423a",
     };
-
     axios
       .get("https://api.elevenlabs.io/v1/user", { headers: myHeaders })
       .then((response) => {
-        const data = response.data;
         setApiPersonalData(response.data.subscription);
-        // do something with the response data
       })
       .catch((error) => {
-        console.error(error);
+        console.log(error);
       });
   };
 
@@ -70,12 +69,11 @@ const TextInputSection = () => {
 
   useEffect(() => {
     const url =
-      "https://api.elevenlabs.io/v1/voices?xi-api-key=8f358a86ce3dd5ba829791045b3ff889";
+      "https://api.elevenlabs.io/v1/voices?xi-api-key=86df1c445eb4015349761a2db30f423a";
 
     axios
       .get(url)
       .then((response) => {
-        console.log(response.data.voices);
         setVoices(response.data.voices);
       })
       .catch((error) => {
@@ -113,17 +111,21 @@ const TextInputSection = () => {
                 className={style.TextInput}
                 type="text"
               />
-              <h2>
-                {apiPersonalData.character_count}/
-                {apiPersonalData.character_limit}
-              </h2>
+              {apiPersonalData.character_count && (
+                <h2>
+                  {apiPersonalData.character_count}/
+                  {apiPersonalData.character_limit}
+                </h2>
+              )}
               <button type="submit" className={style.Button}>
                 Generate
               </button>
             </div>
           </div>
         </form>
-        {audioUrl && <audio className={style.Audio} controls src={audioUrl} />}
+        {loading === false && (
+          <audio className={style.Audio} controls src={audioUrl} />
+        )}
       </div>
     </section>
   );
