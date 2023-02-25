@@ -3,5 +3,16 @@
 }
 
 .NavigationParrent > h1 {
-  text-align: center;
+  margin-left: 3.2rem;
+}
+.NavParrent {
+  display: flex;
+  justify-content: center;
+  gap: 3.2rem;
+}
+.NavParrent > h1 {
+  font-weight: 400;
+}
+.NavParrent > h1:hover {
+  cursor: pointer;
 }

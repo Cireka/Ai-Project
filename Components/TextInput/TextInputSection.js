@@ -11,6 +11,23 @@ const TextInputSection = () => {
   const [apiPersonalData, setApiPersonalData] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const TextToSpeechApi = process.env.Text_Speech;
+
+  useEffect(() => {
+    const myHeaders = {
+      accept: "application/json",
+      "xi-api-key": TextToSpeechApi,
+    };
+    axios
+      .get("https://api.elevenlabs.io/v1/user", { headers: myHeaders })
+      .then((response) => {
+        setApiPersonalData(response.data.subscription);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [audioUrl]);
+
   const InputChangeHandler = (event) => {
     event.preventDefault();
     setTextInput(event.target.value);
@@ -19,7 +36,7 @@ const TextInputSection = () => {
   const SubmitHandler = (event) => {
     event.preventDefault();
     const url = `https://api.elevenlabs.io/v1/text-to-speech/${voiceName}`;
-    const apiKey = "86df1c445eb4015349761a2db30f423a";
+    const apiKey = TextToSpeechApi;
     const data = {
       text: textInput,
       voice_settings: {
@@ -45,19 +62,6 @@ const TextInputSection = () => {
 
         setLoading(false);
       });
-
-    const myHeaders = {
-      accept: "application/json",
-      "xi-api-key": "86df1c445eb4015349761a2db30f423a",
-    };
-    axios
-      .get("https://api.elevenlabs.io/v1/user", { headers: myHeaders })
-      .then((response) => {
-        setApiPersonalData(response.data.subscription);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   };
 
   const optionChangeHandler = (event) => {
@@ -68,8 +72,7 @@ const TextInputSection = () => {
   };
 
   useEffect(() => {
-    const url =
-      "https://api.elevenlabs.io/v1/voices?xi-api-key=86df1c445eb4015349761a2db30f423a";
+    const url = `https://api.elevenlabs.io/v1/voices?xi-api-key=${TextToSpeechApi}`;
 
     axios
       .get(url)
@@ -93,7 +96,11 @@ const TextInputSection = () => {
             <select onChange={optionChangeHandler}>
               {voices.map((item) => {
                 return (
-                  <option id={item.voice_id} value={`${item.name}`}>
+                  <option
+                    key={item.voice_id}
+                    id={item.voice_id}
+                    value={`${item.name}`}
+                  >
                     {item.name}
                   </option>
                 );
