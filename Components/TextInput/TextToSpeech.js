@@ -1,9 +1,9 @@
-import style from "./TextInputSection.module.css";
+import style from "./TextToSpeech.module.css";
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const TextInputSection = () => {
+const TextToSpeech = () => {
   const [textInput, setTextInput] = useState("");
   const [voiceName, setVoiceName] = useState("21m00Tcm4TlvDq8ikWAM");
   const [voices, setVoices] = useState([]);
@@ -130,7 +130,7 @@ const TextInputSection = () => {
             </div>
           </div>
         </form>
-        {loading === false && (
+        {loading === false && audioUrl !== null && (
           <audio className={style.Audio} controls src={audioUrl} />
         )}
       </div>
@@ -138,4 +138,4 @@ const TextInputSection = () => {
   );
 };
 
-export default TextInputSection;
+export default TextToSpeech;

@@ -48,13 +48,13 @@
   padding: 10px;
   font-size: 16px;
   line-height: 1.5;
-  border: 1px solid #ccc;
   border-radius: 5px;
   margin-bottom: 20px;
   caret-color: #000;
 }
 .TextInput:focus {
   outline: none;
+  border: 1px solid #ccc;
 }
 .Button {
   transition: ease-in-out 0.3s;
