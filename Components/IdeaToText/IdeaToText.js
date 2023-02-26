@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 const IdeaToText = () => {
   const [text, setText] = useState("");
   const [responses, setResponses] = useState([]);
-  const GptKey = process.env.Gpt_Key;
+  const GptKey = process.env.GPT_KEY;
 
   useEffect(() => {
     window.scrollTo(0, document.body.scrollHeight);

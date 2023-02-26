@@ -15,7 +15,7 @@
 # production
 /build
 
-.env.Gpt_Key
+
 
 # misc
 .DS_Store
