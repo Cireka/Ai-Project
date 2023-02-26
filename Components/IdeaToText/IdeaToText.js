@@ -46,6 +46,7 @@ const IdeaToText = () => {
     if (event.key === "Enter" && !event.shiftKey) {
       event.preventDefault();
       setText(event.target.value);
+      console.log(GptKey);
     }
   };
 
