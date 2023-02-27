@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 const IdeaToText = () => {
   const [text, setText] = useState("");
   const [responses, setResponses] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   const GptKey = process.env.GPT_KEY;
 
   useEffect(() => {
@@ -13,6 +15,9 @@ const IdeaToText = () => {
 
   useEffect(() => {
     if (text !== "") {
+      setLoading(true);
+      setResponses((prevResponses) => [...prevResponses, text]);
+
       axios
         .post(
           "https://api.openai.com/v1/completions",
@@ -23,7 +28,7 @@ const IdeaToText = () => {
             max_tokens: 450,
             top_p: 1,
             frequency_penalty: 0,
-            presence_penalty: 0.6,
+            presence_penalty: 0,
           },
           {
             headers: {
@@ -33,8 +38,11 @@ const IdeaToText = () => {
           }
         )
         .then((res) => {
-          console.log(res.data);
-          setResponses([...responses, text, res.data.choices[0].text]);
+          setLoading(false);
+          setResponses((prevResponses) => [
+            ...prevResponses,
+            res.data.choices[0].text,
+          ]);
         })
         .catch((error) => {
           console.log(error);
@@ -58,6 +66,7 @@ const IdeaToText = () => {
             {text}
           </span>
         ))}
+        {loading && <span className={style.RecivedText}>Loading...</span>}
       </div>
       <div className={style.SendTextParrent}>
         <textarea onKeyDown={handleKeyDown} className={style.TextArea} />
