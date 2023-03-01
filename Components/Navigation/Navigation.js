@@ -2,8 +2,6 @@ import style from "./Navigation.module.css";
 import Link from "next/link";
 
 const Navigation = () => {
-  // const route = useRouter();
-
   return (
     <section className={style.Navigation}>
       <div className={style.NavigationParrent}>
@@ -11,7 +9,7 @@ const Navigation = () => {
         <div className={style.NavParrent}>
           <Link href={"/"}>Idea To Text</Link>
           <Link href={"/TextToSpeech"}>Text To Speech</Link>
-          {/* <h1>Idea To Image</h1> */}
+          <Link href={"/TextToImage"}>Idea To Image</Link>
         </div>
       </div>
     </section>
