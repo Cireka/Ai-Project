@@ -68,6 +68,7 @@
 }
 
 .TipsAndSettingParrent {
+  position: fixed;
   margin-top: 4.2rem;
   margin-left: 3.2rem;
 

@@ -9,6 +9,7 @@ const TextToImagePage = () => {
   const [imagePrompt, setImagePrompt] = useState([]);
   const [loading, setLoading] = useState(false);
   const GptKey = process.env.GPT_KEY;
+  const [pictureSize, setPictureSize] = useState("256x256");
 
   useEffect(() => {
     window.scrollTo(0, document.body.scrollHeight);
@@ -24,7 +25,7 @@ const TextToImagePage = () => {
             model: "image-alpha-001",
             prompt: imagePrompt.slice(-1)[0],
             num_images: 1,
-            size: "256x256",
+            size: pictureSize,
           },
           {
             headers: {
@@ -59,9 +60,36 @@ const TextToImagePage = () => {
     }
   };
 
+  const optionClickHandler = (event) => {
+    setPictureSize(event.target.value);
+  };
+
   return (
     <Fragment>
       <Navigation />
+      <div className={style.TipsAndSettingParrent}>
+        <div className={style.PannelHeaders}>
+          <h1>Information Box</h1>
+        </div>
+        <p>
+          It's pretty straightforward. Ask the API to generate a picture, for
+          example, 'Kid Walking in the Forest Artwork'. You can also specify the
+          size of the picture Below This Text. This GPT API has some weak
+          points, so to get the best out of it, you must use correct prompt
+          messages.
+        </p>
+        <p>
+          Also, keep in mind that this is a project website for demonstration
+          purposes only. I would be glad if you do not use API requests
+          excessively.
+        </p>
+        <div className={style.Settings}>
+          <select onChange={optionClickHandler}>
+            <option value="256x256">256x256</option>
+            <option value="512x512">512x512</option>
+          </select>
+        </div>
+      </div>
       <section className={style.Section}>
         <div className={style.RecivedTextParrent}>
           {picture.length >= 1 &&

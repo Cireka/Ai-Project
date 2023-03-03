@@ -33,7 +33,6 @@
   flex-direction: column;
   align-items: center;
   gap: 4.2rem;
-  margin-bottom: 12.2rem;
 }
 .RecivedText {
   width: 60rem;
@@ -76,4 +75,41 @@
     rgba(33, 37, 41, 0.5956757703081232) 100%
   );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#212529",endColorstr="#212529",GradientType=1);
+}
+.TipsAndSettingParrent {
+  position: fixed;
+  margin-top: 4.2rem;
+  margin-left: 3.2rem;
+
+  border: 1px solid white;
+  width: 40rem;
+  height: 70rem;
+  border-radius: 1.2rem;
+  padding: 1.2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+.PannelHeaders {
+  text-align: center;
+  border-bottom: 1px solid white;
+  padding-bottom: 1.6rem;
+}
+.TipsAndSettingParrent > p {
+  text-align: start;
+  font-size: 1.8rem;
+  margin: 0 1.2rem;
+  line-height: 1.5;
+}
+.Settings {
+  border-top: 1px solid white;
+  display: flex;
+  justify-content: center;
+}
+.Settings > select {
+  margin: 2.2rem 0;
+  width: 80%;
+}
+.Settings > select:focus {
+  outline: none;
 }
