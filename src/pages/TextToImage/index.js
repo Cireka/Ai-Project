@@ -59,8 +59,6 @@ const TextToImagePage = () => {
     }
   };
 
-  console.log(imagePrompt);
-
   return (
     <Fragment>
       <Navigation />

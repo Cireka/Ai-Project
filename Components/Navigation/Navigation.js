@@ -9,7 +9,7 @@ const Navigation = () => {
         <div className={style.NavParrent}>
           <Link href={"/"}>Idea To Text</Link>
           <Link href={"/TextToSpeech"}>Text To Speech</Link>
-          <Link href={"/TextToImage"}>Idea To Image</Link>
+          <Link href={"/TextToImage"}>Text To Image</Link>
         </div>
       </div>
     </section>

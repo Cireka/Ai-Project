@@ -1,7 +1,7 @@
 const nextConfig = {
   reactStrictMode: false,
   env: {
-    Text_Speech: "86df1c445eb4015349761a2db30f423a",
+    Text_Speech: process.env.TEXT_TO_SPEECH ,
     GPT_KEY: process.env.GPT_KEY,
   },
 };

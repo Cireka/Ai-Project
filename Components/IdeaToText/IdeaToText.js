@@ -1,6 +1,6 @@
 import style from "./IdeaToText.module.css";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 
 const IdeaToText = () => {
   const [text, setText] = useState("");
@@ -59,19 +59,38 @@ const IdeaToText = () => {
   };
 
   return (
-    <section className={style.Section}>
-      <div className={style.RecivedTextParrent}>
-        {responses.map((text, index) => (
-          <span key={index} className={style.RecivedText}>
-            {text}
-          </span>
-        ))}
-        {loading && <span className={style.RecivedText}>Loading...</span>}
+    <Fragment>
+      <div className={style.TipsAndSettingParrent}>
+        <div className={style.PannelHeaders}>
+          <h1>Information Box</h1>
+        </div>
+        <p>
+          It's pretty straightforward. Ask the API to generate a story, for
+          example, 'Child Bedtime Story About Evil Vs Kind'. You can also
+          specify the length of the story. This GPT API has some weak points, so
+          I would recommend generating the desired story part by part rather
+          than as a whole.
+        </p>
+        <p>
+          Also, keep in mind that this is a project website for demonstration
+          purposes only. I would be glad if you do not use API requests
+          excessively.
+        </p>
       </div>
-      <div className={style.SendTextParrent}>
-        <textarea onKeyDown={handleKeyDown} className={style.TextArea} />
-      </div>
-    </section>
+      <section className={style.Section}>
+        <div className={style.RecivedTextParrent}>
+          {responses.map((text, index) => (
+            <span key={index} className={style.RecivedText}>
+              {text}
+            </span>
+          ))}
+          {loading && <span className={style.RecivedText}>Loading...</span>}
+        </div>
+        <div className={style.SendTextParrent}>
+          <textarea onKeyDown={handleKeyDown} className={style.TextArea} />
+        </div>
+      </section>
+    </Fragment>
   );
 };
 
