@@ -15,6 +15,7 @@ const TextToImagePage = () => {
     window.scrollTo(0, document.body.scrollHeight);
   }, [picture]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (imagePrompt.length >= 1) {
       setLoading(true);
