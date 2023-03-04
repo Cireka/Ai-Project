@@ -81,10 +81,10 @@ const TextToImagePage = () => {
             <h2>Read Before Using</h2>
             <p>
               It's pretty straightforward. Ask the API to generate a picture,
-              for example, 'Kid Walking in the Forest Artwork'. You can also
+              for example: Kid Walking in the Forest Artwork. You can also
               specify the size of the picture Below This Text. This GPT API has
               some weak points, so to get the best out of it, you must use
-              correct prompt messages.le.
+              correct prompt messages.
             </p>
             <p>
               Also, keep in mind that this is a project website for
