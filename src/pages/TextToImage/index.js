@@ -47,7 +47,7 @@ const TextToImagePage = () => {
           console.log(error);
         });
     }
-  }, [imagePrompt]);
+  }, [imagePrompt, GptKey]);
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter" && loading === false) {
@@ -85,12 +85,12 @@ const TextToImagePage = () => {
               for example: Kid Walking in the Forest Artwork. You can also
               specify the size of the picture Below This Text. This GPT API has
               some weak points, so to get the best out of it, you must use
-              correct prompt messages.
+              correct prompt messages. &apos;
             </p>
             <p>
               Also, keep in mind that this is a project website for
               demonstration purposes only. I would be glad if you do not use API
-              requests excessively.
+              requests excessively. &apos;
             </p>
           </div>
           {picture.length >= 1 &&
