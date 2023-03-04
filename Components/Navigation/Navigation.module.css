@@ -19,3 +19,26 @@
 .NavParrent > a:hover {
   cursor: pointer;
 }
+
+@media screen and (max-width: 800px) {
+  .NavParrent > a {
+    font-size: 1.4rem;
+  }
+  .NavParrent {
+    gap: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 676px) {
+  .NavigationParrent > h1 {
+    display: none;
+  }
+}
+@media screen and (max-width: 334px) {
+  .NavParrent > a {
+    font-size: 1.2rem;
+  }
+  .NavParrent {
+    gap: 1.2rem;
+  }
+}

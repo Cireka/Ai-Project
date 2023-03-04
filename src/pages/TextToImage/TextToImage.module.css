@@ -1,7 +1,7 @@
 .Section {
   max-width: 130rem;
   margin: 0 auto;
-  margin-top: 9.2rem;
+  margin-top: 6.2rem;
 }
 .TextArea {
   background-color: #495057;
@@ -33,6 +33,7 @@
   flex-direction: column;
   align-items: center;
   gap: 4.2rem;
+  padding-bottom: 12.2rem;
 }
 .RecivedText {
   width: 60rem;
@@ -57,59 +58,104 @@
   position: fixed;
   bottom: 0;
   left: 0;
-  background-color: #adb5bd;
   background: rgb(33, 37, 41);
   background: -moz-linear-gradient(
     0deg,
     rgba(33, 37, 41, 1) 60%,
-    rgba(33, 37, 41, 0.5956757703081232) 100%
+    rgba(255, 255, 255, 0) 100%
   );
   background: -webkit-linear-gradient(
     0deg,
     rgba(33, 37, 41, 1) 60%,
-    rgba(33, 37, 41, 0.5956757703081232) 100%
+    rgba(255, 255, 255, 0) 100%
   );
   background: linear-gradient(
     0deg,
     rgba(33, 37, 41, 1) 60%,
-    rgba(33, 37, 41, 0.5956757703081232) 100%
+    rgba(255, 255, 255, 0) 100%
   );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#212529",endColorstr="#212529",GradientType=1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#212529",endColorstr="#ffffff",GradientType=1);
 }
-.TipsAndSettingParrent {
-  position: fixed;
-  margin-top: 4.2rem;
-  margin-left: 3.2rem;
 
-  border: 1px solid white;
-  width: 40rem;
-  height: 70rem;
-  border-radius: 1.2rem;
-  padding: 1.2rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.8rem;
-}
-.PannelHeaders {
-  text-align: center;
-  border-bottom: 1px solid white;
-  padding-bottom: 1.6rem;
-}
-.TipsAndSettingParrent > p {
-  text-align: start;
-  font-size: 1.8rem;
-  margin: 0 1.2rem;
-  line-height: 1.5;
-}
 .Settings {
-  border-top: 1px solid white;
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .Settings > select {
+  outline: none;
+  border: none;
   margin: 2.2rem 0;
-  width: 80%;
+  width: 25rem;
+  border-radius: 0.4rem;
+  padding: 0.6rem;
+  background-color: #4a5759;
+  color: white;
+  border: 1px solid #4a5759;
 }
 .Settings > select:focus {
   outline: none;
+}
+
+.Warning > p {
+  width: 60rem;
+  font-size: 1.8rem;
+  line-height: 1.4;
+  font-weight: 400;
+  word-spacing: 2px;
+  text-align: center;
+}
+.Warning > h2 {
+  text-align: center;
+  margin-bottom: 3.2rem;
+}
+
+.Warning > h2 {
+  color: #e32934;
+}
+.Warning > p {
+  color: #ffbb00;
+}
+
+@media screen and (max-width: 1460px) {
+  .RecivedText {
+    width: 40rem;
+    font-size: 1.8rem;
+  }
+  .TextArea {
+    width: 50rem;
+    height: 4rem;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .Warning > p {
+    width: 30rem;
+    font-size: 1.2rem;
+  }
+  .RecivedText {
+    width: 30rem;
+    font-size: 1.2rem;
+    line-height: 1.7;
+  }
+}
+
+@media screen and (max-width: 528px) {
+  .TextArea {
+    width: 26rem;
+    height: 4rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .Warning > p {
+    width: 20rem;
+    font-size: 1rem;
+  }
+  .RecivedText {
+    width: 20rem;
+    font-size: 1.2rem;
+    line-height: 1.7;
+  }
 }

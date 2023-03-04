@@ -67,31 +67,30 @@ const TextToImagePage = () => {
   return (
     <Fragment>
       <Navigation />
-      <div className={style.TipsAndSettingParrent}>
-        <div className={style.PannelHeaders}>
-          <h1>Information Box</h1>
-        </div>
-        <p>
-          It's pretty straightforward. Ask the API to generate a picture, for
-          example, 'Kid Walking in the Forest Artwork'. You can also specify the
-          size of the picture Below This Text. This GPT API has some weak
-          points, so to get the best out of it, you must use correct prompt
-          messages.
-        </p>
-        <p>
-          Also, keep in mind that this is a project website for demonstration
-          purposes only. I would be glad if you do not use API requests
-          excessively.
-        </p>
+      <section className={style.Section}>
         <div className={style.Settings}>
+          <h2>Picture Size Selector</h2>
           <select onChange={optionClickHandler}>
             <option value="256x256">256x256</option>
             <option value="512x512">512x512</option>
           </select>
         </div>
-      </div>
-      <section className={style.Section}>
         <div className={style.RecivedTextParrent}>
+          <div className={style.Warning}>
+            <h2>Read Before Using</h2>
+            <p>
+              It's pretty straightforward. Ask the API to generate a picture,
+              for example, 'Kid Walking in the Forest Artwork'. You can also
+              specify the size of the picture Below This Text. This GPT API has
+              some weak points, so to get the best out of it, you must use
+              correct prompt messages.le.
+            </p>
+            <p>
+              Also, keep in mind that this is a project website for
+              demonstration purposes only. I would be glad if you do not use API
+              requests excessively.
+            </p>
+          </div>
           {picture.length >= 1 &&
             picture.map((item, index) => {
               return (

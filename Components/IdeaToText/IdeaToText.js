@@ -60,25 +60,23 @@ const IdeaToText = () => {
 
   return (
     <Fragment>
-      <div className={style.TipsAndSettingParrent}>
-        <div className={style.PannelHeaders}>
-          <h1>Information Box</h1>
-        </div>
-        <p>
-          It's pretty straightforward. Ask the API to generate a story, for
-          example, 'Child Bedtime Story About Evil Vs Kind'. You can also
-          specify the length of the story. This GPT API has some weak points, so
-          I would recommend generating the desired story part by part rather
-          than as a whole.
-        </p>
-        <p>
-          Also, keep in mind that this is a project website for demonstration
-          purposes only. I would be glad if you do not use API requests
-          excessively.
-        </p>
-      </div>
       <section className={style.Section}>
         <div className={style.RecivedTextParrent}>
+          <div className={style.Warning}>
+            <h2>Read Before Using</h2>
+            <p>
+              It's pretty straightforward. Ask the API to generate a story, for
+              example, 'Child Bedtime Story About Evil Vs Kind'. You can also
+              specify the length of the story. This GPT API has some weak
+              points, so I would recommend generating the desired story part by
+              part rather than as a whole.
+            </p>
+            <p>
+              Also, keep in mind that this is a project website for
+              demonstration purposes only. I would be glad if you do not use API
+              requests excessively.
+            </p>
+          </div>
           {responses.map((text, index) => (
             <span key={index} className={style.RecivedText}>
               {text}

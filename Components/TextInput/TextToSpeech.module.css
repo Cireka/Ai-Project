@@ -16,6 +16,7 @@
 .InputFormContainer,
 .OptionsListParrent {
   display: grid;
+  gap: 1.8rem;
   grid-template-columns: 1fr 4.5fr;
 }
 .OptionsContainer {
@@ -30,6 +31,7 @@
   border-radius: 4px;
 }
 .OptionsListParrent {
+  align-items: center;
   padding: 3.2rem;
 }
 .FormHeader {
@@ -80,4 +82,18 @@
   position: absolute;
   left: 1.2rem;
   bottom: 3.8rem;
+}
+
+@media screen and (max-width: 469px) {
+  .form {
+    border-top: 1px solid #cacfd8;
+    padding: 1.8rem;
+  }
+  .OptionsListParrent {
+    padding: 1.8rem 1.8rem;
+  }
+  .FormHeader {
+    padding: 1.8rem;
+    border-bottom: 1px solid #cacfd8;
+  }
 }
