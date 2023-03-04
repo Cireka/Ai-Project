@@ -98,7 +98,7 @@ const TextToImagePage = () => {
               return (
                 <div key={Math.random()} className={style.ChatParrent}>
                   <h2 key={Math.random()}>{imagePrompt[index]}</h2>
-                  <Image
+                  <img
                     alt="Ai Generated Image"
                     key={Math.random()}
                     src={item.url}
