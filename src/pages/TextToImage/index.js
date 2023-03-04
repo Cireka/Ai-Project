@@ -3,6 +3,7 @@ import style from "./TextToImage.module.css";
 import { Fragment } from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Image from "next/image";
 
 const TextToImagePage = () => {
   const [picture, setPicture] = useState([]);
@@ -97,7 +98,11 @@ const TextToImagePage = () => {
               return (
                 <div key={Math.random()} className={style.ChatParrent}>
                   <h2 key={Math.random()}>{imagePrompt[index]}</h2>
-                  <img key={Math.random()} src={item.url} />
+                  <Image
+                    alt="Ai Generated Image"
+                    key={Math.random()}
+                    src={item.url}
+                  />
                 </div>
               );
             })}
