@@ -11,7 +11,7 @@ const TextToSpeech = () => {
   const [apiPersonalData, setApiPersonalData] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const TextToSpeechApi = process.env.Text_Speech;
+  const TextToSpeechApi = process.env.TEXT_TO_SPEECH;
 
   useEffect(() => {
     const myHeaders = {
@@ -133,6 +133,7 @@ const TextToSpeech = () => {
         {loading === false && audioUrl !== null && (
           <audio className={style.Audio} controls src={audioUrl} />
         )}
+        {loading === true && <h1 className={style.Audio}>Loading...</h1>}
       </div>
     </section>
   );
